@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: rgb(217, 216, 201);
+    }
+    h1{
+        text-align: center;
+    }
+    .main-container{
+        text-align: center;
+    }
+    .container-1{
+        padding: 20px;
+    }
+    .Submit{
+    display: inline-block;
+    background: #ff523b;
+    color: #fff;
+    padding: 8px 30px;
+    margin: 30px 0;
+    border-radius: 30px;
+    transition: background 0.5s ;
+}
+.Submit:hover{
+    background: #563434;
+}
+    
+
+</style>
+<body>
+    <h1>Sign Up</h1>
+    <form action="">
+        <div class="main-container">
+        <div class="container-1">
+            <label for="">Name:
+            <input id="userName" type="text" onkeyup="userFunVal()">
+            </label>
+            <p class="err1"></p>
+        </div>
+            <div>
+             <label for="">Email:
+            <input id="email" type="text" onkeyup="emailFunVal()">
+            </label>
+            <p class="err2"></p>
+            <button class="Submit">Submit</button>
+        </div>
+        </div>
+        
+    </form>
+
+    <script>
+        function userFunVal(){
+            let userName = document.querySelector("#userName");
+            let err1 = document.querySelector(".err1");
+            if(!userName.value){
+                err1.innerText = "Invalid user Name";
+                err1.style.color = "red";
+            }
+            else{
+                err1.innerText ="";
+                err1.style.color = "none";
+            }
+        }
+
+        
+        function emailFunVal(){
+            let email = document.querySelector("#email");
+            let err2 = document.querySelector(".err2");
+            let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if(!regex.test(email.value)){
+                err2.innerText = "Invalid E-mail";
+                err2.style.color = "red";
+            }
+            else{
+                err1.innerText ="";
+                err1.style.color = "none";
+            }
+        }
+
+    </script>
+</body>
+</html>
