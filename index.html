@@ -6,86 +6,67 @@
     <title>Document</title>
 </head>
 <style>
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        background-color: rgb(217, 216, 201);
+    body{
+       background-color: antiquewhite;  
+       color: #db850415;
+       text-align: center;
     }
-    h1{
-        text-align: center;
+    .h1{
+        font-size: 25px;
+        color: aqua;
     }
-    .main-container{
-        text-align: center;
+    #text{
+        font-size: 24px;
+        color: #555;
     }
-    .container-1{
-        padding: 20px;
+    button{
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #f10943;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 25px;
+        color: beige;
     }
-    .Submit{
-    display: inline-block;
-    background: #ff523b;
-    color: #fff;
-    padding: 8px 30px;
-    margin: 30px 0;
-    border-radius: 30px;
-    transition: background 0.5s ;
-}
-.Submit:hover{
-    background: #563434;
-}
-    
-
+    button:hover{
+        background-color: rgb(175, 105, 14);
+    } 
 </style>
 <body>
-    <h1>Sign Up</h1>
-    <form action="">
-        <div class="main-container">
-        <div class="container-1">
-            <label for="">Name:
-            <input id="userName" type="text" onkeyup="userFunVal()">
-            </label>
-            <p class="err1"></p>
-        </div>
-            <div>
-             <label for="">Email:
-            <input id="email" type="text" onkeyup="emailFunVal()">
-            </label>
-            <p class="err2"></p>
-            <button class="Submit">Submit</button>
-        </div>
-        </div>
-        
-    </form>
+    <h1 id ="text"></h1>
+    <button id="Start">click here</button>
 
     <script>
-        function userFunVal(){
-            let userName = document.querySelector("#userName");
-            let err1 = document.querySelector(".err1");
-            if(!userName.value){
-                err1.innerText = "Invalid user Name";
-                err1.style.color = "red";
-            }
-            else{
-                err1.innerText ="";
-                err1.style.color = "none";
-            }
-        }
-
+        let text = document.querySelector("#text");
         
-        function emailFunVal(){
-            let email = document.querySelector("#email");
-            let err2 = document.querySelector(".err2");
-            let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if(!regex.test(email.value)){
-                err2.innerText = "Invalid E-mail";
-                err2.style.color = "red";
-            }
-            else{
-                err1.innerText ="";
-                err1.style.color = "none";
-            }
-        }
+        
+        
+        let array = ["Code the canvas. Design the dream.",
+        "Pixels and passion — thats the frontend life",
+        "Behind the scenes, I keep the digital world running.",
+        "I build it. I connect it. I beautify it"];
+        let count = 0;
+        let end;
 
+        function  startCountdown() {
+            if (end) return;
+            end = setInterval(() => {
+            if(count == array.length){
+                count = 0;
+            }
+            text.innerHTML = array[count];
+            count++;
+        }, 2000);
+    }
+        function show() {
+        text.innerHTML = "Strat Countdown";
+      }
+    
+
+      window.addEventListener("load", show);
+      let button = document.querySelector("#Start").addEventListener("click", startCountdown);
+    
     </script>
 </body>
 </html>
